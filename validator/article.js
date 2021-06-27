@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-06-25 00:06:36
- * @LastEditTime: 2021-06-27 14:27:41
+ * @LastEditTime: 2021-06-27 14:47:23
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /express-api/validator/article.js
@@ -53,3 +53,5 @@ exports.updateArticle = [
     next()
   }
 ]
+
+exports.deleteArticle = exports.updateArticle

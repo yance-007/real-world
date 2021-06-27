@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-06-21 22:24:44
- * @LastEditTime: 2021-06-27 14:32:05
+ * @LastEditTime: 2021-06-27 14:48:33
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /express-api/controller/article.js
@@ -111,7 +111,9 @@ exports.updateArticle = async (req, res, next) => {
 exports.deleteArticle = async (req, res, next) => {
   try {
     // 处理请求
-    res.send('deleteArticle')
+    const { article } = req
+    await article.remove()
+    res.status(204).end('删除成功！')
   } catch (err) {
     next(err)
   }
