@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-06-21 22:24:44
- * @LastEditTime: 2021-06-25 16:21:48
+ * @LastEditTime: 2021-06-27 14:32:05
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /express-api/controller/article.js
@@ -95,7 +95,13 @@ exports.createArticle = async (req, res, next) => {
 exports.updateArticle = async (req, res, next) => {
   try {
     // 处理请求
-    res.send('updateArticle')
+    const article = req.article
+    const bodyArticle = req.body
+    article.title = bodyArticle.title || article.title
+    article.description = bodyArticle.description || article.description
+    article.body = bodyArticle.body || article.body
+    await article.save()
+    res.status(200).json(article)
   } catch (err) {
     next(err)
   }

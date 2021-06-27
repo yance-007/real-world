@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-06-21 22:21:53
- * @LastEditTime: 2021-06-25 16:22:53
+ * @LastEditTime: 2021-06-27 13:51:53
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /express-api/router/article.js
@@ -26,7 +26,7 @@ router.get('/:slug', articleValidator.getArticle, articleCtrl.getArticle)
 router.post('/create', auth, articleValidator.createArticle, articleCtrl.createArticle)
 
 // 更新文章
-router.put('/:slug', auth, articleCtrl.updateArticle)
+router.put('/:slug', auth, articleValidator.updateArticle, articleCtrl.updateArticle)
 
 // 删除文章
 router.delete('/:slug', articleCtrl.deleteArticle)
